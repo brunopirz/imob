@@ -16,5 +16,5 @@ Complete system for property management with frontend for clients and administra
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/balvedi/imoveis.git
+git clone https://github.com/brunopirz/imob.git
 cd imoveis

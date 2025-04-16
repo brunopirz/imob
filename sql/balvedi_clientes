@@ -1,0 +1,38 @@
+CREATE TABLE imoveis (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    tipo ENUM('casa', 'apartamento', 'terreno', 'comercial') NOT NULL,
+    preco DECIMAL(12,2) NOT NULL,
+    area INT,
+    quartos TINYINT,
+    banheiros TINYINT,
+    endereco VARCHAR(200) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    estado CHAR(2) NOT NULL,
+    cep VARCHAR(10),
+    latitude DECIMAL(10,8),
+    longitude DECIMAL(11,8),
+    status ENUM('disponivel', 'vendido', 'alugado') DEFAULT 'disponivel',
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    destaque BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE imagens_imoveis (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    imovel_id INT NOT NULL,
+    caminho VARCHAR(255) NOT NULL,
+    ordem TINYINT DEFAULT 0,
+    FOREIGN KEY (imovel_id) REFERENCES imoveis(id) ON DELETE CASCADE
+);
+
+CREATE TABLE leads (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20),
+    mensagem TEXT,
+    imovel_id INT,
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (imovel_id) REFERENCES imoveis(id) ON DELETE SET NULL
+);

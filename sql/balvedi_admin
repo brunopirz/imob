@@ -1,0 +1,21 @@
+CREATE TABLE administradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha_hash VARCHAR(255) NOT NULL,
+    nivel_acesso ENUM('operador', 'gerente', 'admin') DEFAULT 'operador',
+    ultimo_login DATETIME,
+    ativo BOOLEAN DEFAULT TRUE,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE logs_acesso (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    admin_id INT,
+    acao VARCHAR(50) NOT NULL,
+    descricao TEXT,
+    ip VARCHAR(45),
+    user_agent VARCHAR(255),
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES administradores(id) ON DELETE SET NULL
+);

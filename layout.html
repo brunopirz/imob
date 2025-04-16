@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balvedi Imóveis - <?= htmlspecialchars($pageTitle) ?></title>
+    <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link href="/assets/fonts/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#F5F5DC] text-gray-800">
+    <header class="bg-[#D2B48C] shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center">
+                <i class="fas fa-home text-2xl mr-2 text-white"></i>
+                <span class="text-xl font-bold text-white">Balvedi Imóveis</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="/" class="text-white hover:text-gray-200">Home</a>
+                <a href="/imoveis" class="text-white hover:text-gray-200">Imóveis</a>
+                <a href="/contato" class="text-white hover:text-gray-200">Contato</a>
+            </nav>
+            
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-[#C4A575] px-4 py-2" id="mobile-menu">
+            <a href="/" class="block py-2 text-white">Home</a>
+            <a href="/imoveis" class="block py-2 text-white">Imóveis</a>
+            <a href="/contato" class="block py-2 text-white">Contato</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <?= $content ?>
+    </main>
+
+    <footer class="bg-[#D2B48C] text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Balvedi Imóveis</h3>
+                    <p>Oferecendo as melhores soluções em imóveis há mais de 15 anos.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <p><i class="fas fa-phone mr-2"></i> (XX) XXXX-XXXX</p>
+                    <p><i class="fas fa-envelope mr-2"></i> contato@balvedi.com.br</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Redes Sociais</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-[#C4A575] mt-8 pt-6 text-center">
+                <p>&copy; <?= date('Y') ?> Balvedi Imóveis. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
